@@ -16,7 +16,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import patientdatabase.be.Patient;
-import patientdatabase.dal.PatientDAO;
+import patientdatabase.bll.PatientManager;
 
 /**
  *
@@ -33,17 +33,18 @@ public class MainViewController implements Initializable {
     @FXML
     private TableColumn<Patient, String> clmEmail;
 
+    private final PatientManager patientModel = new PatientManager();
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         readDataIntoList();
     }
 
     private void readDataIntoList() {
-        PatientDAO patientDAO = PatientDAO.getInstance();
         ObservableList<Patient> patientList
                 = FXCollections.observableArrayList(
-                        patientDAO.getAllPatients()
-                );
+                        patientModel.getPatients());
+
         clmName.setCellValueFactory(new PropertyValueFactory<>("name"));
         clmEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         tablePatients.setItems(patientList);

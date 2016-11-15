@@ -35,7 +35,7 @@ public class PatientDAO {
      *
      * @return
      */
-    public List<Patient> getAllPatients() {
+    public List<Patient> getAllPatientsFromFILE() {
         List<Patient> patientList = new ArrayList();
         try (BufferedReader CSVFile = new BufferedReader(new FileReader(FILE))) {
             CSVFile.readLine(); //Skip first line header
