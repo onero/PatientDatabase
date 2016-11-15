@@ -39,15 +39,15 @@ public class MainViewController implements Initializable {
     }
 
     private void readDataIntoList() {
+        PatientDAO patientDAO = PatientDAO.getInstance();
         ObservableList<Patient> patientList
                 = FXCollections.observableArrayList(
-                        new Patient(0, "Adam Hansen", "alh@easv.dk", "Happiness"),
-                        new Patient(1, "Jeppe Nielsen", "jlp@easv.dk", "Full retardo")
+                        patientDAO.getAllPatients()
                 );
         clmName.setCellValueFactory(new PropertyValueFactory<>("name"));
         clmEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         tablePatients.setItems(patientList);
-        PatientDAO patientDAO = PatientDAO.getInstance();
+
     }
 
 }
