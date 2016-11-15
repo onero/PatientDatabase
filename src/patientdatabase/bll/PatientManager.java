@@ -11,7 +11,18 @@ import patientdatabase.dal.PatientDAO;
 
 public class PatientManager {
 
-    private final PatientDAO patientDAO = PatientDAO.getInstance();
+    private static PatientManager instance;
+
+    public static PatientManager getInstance() {
+        if (instance == null) {
+            instance = new PatientManager();
+        }
+        return instance;
+    }
+
+    private PatientManager() {
+
+    }
 
     /**
      * Gets the list of Patients
@@ -19,7 +30,7 @@ public class PatientManager {
      * @return
      */
     public List<Patient> getPatients() {
-        return patientDAO.getAllPatientsFromFILE();
+        return PatientDAO.getInstance().getAllPatientsFromFILE();
     }
 
 }

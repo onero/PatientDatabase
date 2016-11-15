@@ -33,7 +33,7 @@ public class MainViewController implements Initializable {
     @FXML
     private TableColumn<Patient, String> clmEmail;
 
-    private final PatientManager patientModel = new PatientManager();
+    private final PatientManager patientModel = PatientManager.getInstance();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
