@@ -13,9 +13,9 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author gta1
+ * @author Adamino
  */
-public class PatientDatabase extends Application {
+public class PatientDatabaseMain extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
