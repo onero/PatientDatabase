@@ -16,6 +16,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import patientdatabase.be.Patient;
+import patientdatabase.dal.PatientDAO;
 
 /**
  *
@@ -46,6 +47,7 @@ public class MainViewController implements Initializable {
         clmName.setCellValueFactory(new PropertyValueFactory<>("name"));
         clmEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         tablePatients.setItems(patientList);
+        PatientDAO patientDAO = PatientDAO.getInstance();
     }
 
 }
