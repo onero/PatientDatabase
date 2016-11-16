@@ -41,7 +41,10 @@ public class PatientDAO {
             CSVFile.readLine(); //Skip first line header
             String line = CSVFile.readLine();
             while (line != null) {
-                String[] dataArray = line.split(",");
+                String[] dataArray = line.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+//                for (String string : dataArray) {
+//                    System.out.println(string);
+//                }
                 patientList.add(new Patient(
                         Integer.parseInt(dataArray[0]),
                         dataArray[1],
